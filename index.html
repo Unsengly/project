@@ -137,6 +137,49 @@
       font-size: 16px;
       color: #666;
     }
+    /* Skills Section */
+
+/* Skills Section */
+.skills {
+      padding: 80px 20px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    .skills h2 {
+      font-size: 30px;
+      margin-bottom: 40px;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .skill {
+      width: 200px;
+      text-align: center;
+    }
+
+    .skill img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+
+    .skill-name {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+
+
+
+
 
     /* Portfolio Section */
     .portfolio {
@@ -223,10 +266,12 @@
     <nav class="navigation">
       <a href="#about">About</a>
       <a href="#passions">Passions</a>
+      <a href="#skills">Skills</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#contact" class="contact-button">Contact Me</a>
     </nav>
   </header>
+  
 
   <section class="hero">
     <img src="./asset/sengly.jpg" alt="Un Sengly">
@@ -262,6 +307,84 @@
         </div>
       </div>
     </section>
+
+    <section id="skills" class="skills">
+      <h2>Skills I Have Learned</h2>
+      <div class="skills-container">
+        <div class="skills-category">
+          <h3>Languages</h3>
+          <div class="skill">
+            <img src="./asset/PHP.png" alt="PHP">
+            <div class="skill-name">PHP</div>
+          </div>
+          <div class="skill">
+            <img src="./asset/JavaScript.png" alt="JavaScript">
+            <div class="skill-name">JavaScript</div>
+          </div>
+          <div class="skill">
+            <img src="./asset/Vue.png" alt="Vue.js">
+            <div class="skill-name">Vue.js</div>
+          </div>
+          <div class="skill">
+            <img src="./asset/React.png" alt="React.js">
+            <div class="skill-name">React.js</div>
+          </div>
+          <div class="skill">
+            <img src="./asset/Java.png" alt="Vue.js">
+            <div class="skill-name">Java</div>
+          </div>
+          <div class="skill">
+            <img src="./asset/Python.png" alt="React.js">
+            <div class="skill-name">Python</div>
+          </div>
+        </div>
+    
+        <div class="skills-category">
+          <h3>Tools</h3>
+          <div class="skill">
+            <img src="./asset/VS Code.png" alt="Tools">
+            <div class="skill-name">VS Code</div>
+          </div>
+          <div class="skill">
+            <img src="./asset/xampp.png" alt="Tools">
+            <div class="skill-name">Xammp</div>
+          </div>
+          <div class="skill">
+            <img src="./asset/Figma.jpg" alt="Tools">
+            <div class="skill-name">Figma</div>
+          </div>
+          <div class="skill">
+            <img src="./asset/Canva.png" alt="Tools">
+            <div class="skill-name">Canva</div>
+          </div>
+          <div class="skill">
+            <img src="./asset/draw.io.png" alt="Tools">
+            <div class="skill-name">Draw.io</div>
+          </div>
+          <div class="skill">
+            <img src="./asset/StarUML.png" alt="Tools">
+            <div class="skill-name">Star UML</div>
+          </div>
+        </div>
+    
+        <div class="skills-category">
+          <h3>Libraries</h3>
+          <div class="skill">
+            <img src="./asset/Express.png" alt="Node.js">
+            <div class="skill-name">Node.js</div>
+          </div>
+          <div class="skill">
+            <img src="./asset/laravel.png" alt="Laravel">
+            <div class="skill-name">Laravel</div>
+          </div>
+          <div class="skill">
+            <img src="./asset/mysql.png" alt="MySQL">
+            <div class="skill-name">MySQL</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
 
     <section id="portfolio" class="portfolio">
       <h2>My Portfolio</h2>
