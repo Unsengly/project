@@ -92,6 +92,24 @@
       color: #555;
     }
 
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animated-name {
+      display: inline-block;
+      font-size: 28px;
+      font-weight: bold;
+      animation: fadeIn 2s ease-in-out;
+    }
+
     /* About Section */
     .about {
       text-align: center;
@@ -271,11 +289,10 @@
       <a href="#about">About</a>
       <a href="#passions">Passions</a>
       <a href="#skills">Skills</a>
-      <a href="#portfolio">Experiences</a>
+      <a href="#portfolio">Portfolio</a>
       <a href="#contact" class="contact-button">Contact Me</a>
     </nav>
   </header>
-  
 
   <section class="hero">
     <div class="profile-container">
@@ -285,22 +302,13 @@
       <div class="profile-info">
         <h1>Welcome to My Portfolio</h1>
         <p>Dedicated to crafting beautiful and functional web experiences.</p>
-        <h2>Hi! I’m Un Sengly,</h2>
+        <h2>Hi! I’m <span class="animated-name">Un Sengly</span>,</h2>
         <p>Currently studying at ITC, Year 5 in the GIC department. Interested in Web Programming and UX/UI Design.</p>
         <p>Creating web applications using a combination of technologies such as HTML, CSS, and JavaScript on the client-side, and languages like PHP on the server-side. It involves developing both the front-end, which users interact with directly, and the back-end, which manages data processing and storage.</p>
       </div>
     </div>
   </section>
-  <main>
-    <!-- <section id="about" class="about">
-      <h2>Hi! I’m Un Sengly,</h2>
-      <p>Currently study at ITC year5 in department GIC. Interested in Web Programming and UX/UI design</p>
-      <p>
-        Creating web applications using a combination of technologies such as HTML, CSS, and JavaScript
-         on the client-side, and languages like PHP on the server-side. It involves developing both the front-end, 
-         which is what users interact with directly, and the back-end, which manages data processing and storage.
-      </p>
-    </section> -->
+    </section>
 
     <section id="passions" class="passions">
       <h2>Additional Passions</h2>
