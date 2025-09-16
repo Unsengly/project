@@ -3,462 +3,674 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <title>Un Sengly - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* General styles */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      background-color: #f8f9fa;
+    /* Variables for consistent theming */
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #64748b;
+      --light: #f8fafc;
+      --dark: #1e293b;
+      --accent: #3b82f6;
+      --card-bg: #ffffff;
+      --section-alt: #f1f5f9;
+      --transition: all 0.3s ease;
     }
 
+    /* Base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      margin: 0.5rem auto;
+      border-radius: 2px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Header */
     .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.2rem 0;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .header .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
-      background-color: white;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
 
     .logo {
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
     }
 
-    .navigation a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #333;
-      transition: color 0.3s;
-      font-size: 16px;
+    .nav-links {
+      display: flex;
+      list-style: none;
     }
 
-    .navigation a:hover {
-      color: #007BFF;
+    .nav-links li {
+      margin-left: 2rem;
     }
 
-    .contact-button {
-      padding: 10px 20px;
-      background-color: #007BFF;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 16px;
+    .nav-links a {
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
     }
 
-    .contact-button:hover {
-      background-color: #0056b3;
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
     }
 
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+
+    /* Hero Section */
     .hero {
+      padding: 8rem 0 5rem;
+      background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .hero-image {
+      flex: 1;
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 100px 20px;
-      background-color: #f1f8ff;
     }
 
-    .profile-container {
-      display: flex;
-      gap: 50px;
-      align-items: center;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .profile-image img {
-      width: 200px;
-      height: 200px;
+    .hero-image img {
+      width: 280px;
+      height: 280px;
       object-fit: cover;
       border-radius: 50%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .profile-info {
-      max-width: 600px;
+    .hero-text {
+      flex: 1;
     }
 
-    .profile-info h1 {
-      font-size: 36px;
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
     }
 
-    .profile-info p {
-      font-size: 18px;
-      color: #555;
+    .hero-title {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animated-name {
-      display: inline-block;
-      font-size: 28px;
-      font-weight: bold;
-      animation: fadeIn 2s ease-in-out;
+    .highlight {
+      color: var(--primary);
     }
 
     /* About Section */
     .about {
+      background: var(--card-bg);
+    }
+
+    .about-content {
       text-align: center;
-      padding: 80px 20px;
-      background-color: #e9f5ff;
-    }
-
-    .about h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .about p {
-      margin: 10px 0;
-      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     /* Passions Section */
     .passions {
-      padding: 80px 20px;
-      background-color: white;
-      text-align: center;
+      background: var(--section-alt);
     }
 
-    .passions h2 {
-      font-size: 30px;
-      margin-bottom: 40px;
-    }
-
-    .passions-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+    .passions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
     .passion-card {
-      background-color: #f5faff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 280px;
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
       text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
     }
 
-    .passion-card h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
+    .passion-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
-    .passion-card p {
-      font-size: 16px;
-      color: #666;
+    .passion-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
     }
+
     /* Skills Section */
-
-/* Skills Section */
-.skills {
-      padding: 80px 20px;
-      background-color: #ffffff;
-      text-align: center;
-    }
-
-    .skills h2 {
-      font-size: 30px;
-      margin-bottom: 40px;
-    }
-
     .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
-    .skill {
-      width: 200px;
+    .skill-category {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .skill-category h3 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-item {
       text-align: center;
     }
 
-    .skill img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      margin-bottom: 10px;
-      border-radius: 10px;
+    .skill-icon {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
     }
 
     .skill-name {
-      font-size: 18px;
-      font-weight: bold;
+      font-size: 0.9rem;
+      font-weight: 500;
     }
 
     /* Portfolio Section */
     .portfolio {
-      padding: 80px 20px;
-      background-color: #e9f5ff;
-      text-align: center;
+      background: var(--section-alt);
     }
 
-    .portfolio h2 {
-      font-size: 30px;
-      margin-bottom: 40px;
-    }
-
-    .portfolio-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
     .portfolio-item {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      width: 300px;
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
     }
 
-    .portfolio-item img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
-    .portfolio-item h3 {
-      font-size: 18px;
-      margin-top: 10px;
+    .portfolio-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .portfolio-content {
+      padding: 1.5rem;
+    }
+
+    .portfolio-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
     }
 
     /* Contact Section */
-    .contact {
-      padding: 80px 20px;
-      text-align: center;
-      background-color: white;
-    }
-
-    .contact h2 {
-      font-size: 30px;
-      margin-bottom: 40px;
-    }
-
     .contact-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
-    .contact-links a {
-      text-decoration: none;
-      font-size: 18px;
-      color: #007BFF;
-      transition: color 0.3s;
+    .contact-link {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
     }
 
-    .contact-links a:hover {
-      color: #0056b3;
+    .contact-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-icon {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+      color: var(--primary);
     }
 
     /* Footer */
     .footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #007BFF;
+      background: var(--dark);
       color: white;
-      font-size: 16px;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .footer p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+      }
+      
+      .hero-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 0.5rem 1.5rem;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .section {
+        padding: 3rem 0;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header class="header">
-    <h1 class="logo">UN SENGLY</h1>
-    <nav class="navigation">
-      <a href="#about">About</a>
-      <a href="#passions">Passions</a>
-      <a href="#skills">Skills</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact" class="contact-button">Contact Me</a>
-    </nav>
+    <div class="container">
+      <div class="logo">UN SENGLY</div>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#passions">Passions</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact" class="btn">Contact Me</a></li>
+      </ul>
+    </div>
   </header>
 
-  <section class="hero">
-    <div class="profile-container">
-      <div class="profile-image">
-        <img src="./asset/sengly.jpg" alt="Un Sengly">
-      </div>
-      <div class="profile-info">
-        <h1>Welcome to My Portfolio</h1>
-        <p>Dedicated to crafting beautiful and functional web experiences.</p>
-        <h2>Hi! I’m <span class="animated-name">Un Sengly</span>,</h2>
-        <p>Currently studying at ITC, Year 5 in the GIC department. Interested in Web Programming and UX/UI Design.</p>
-        <p>Creating web applications using a combination of technologies such as HTML, CSS, and JavaScript on the client-side, and languages like PHP on the server-side. It involves developing both the front-end, which users interact with directly, and the back-end, which manages data processing and storage.</p>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-image">
+          <img src="./asset/sengly.jpg" alt="Un Sengly">
+        </div>
+        <div class="hero-text">
+          <h1 class="hero-title">Hi, I'm <span class="highlight">Un Sengly</span></h1>
+          <p class="hero-subtitle">Web Developer & UI/UX Designer</p>
+          <p>Currently studying at ITC, Year 5 in the GIC department. Passionate about creating beautiful, functional web experiences with modern technologies.</p>
+          <a href="#contact" class="btn">Get in Touch</a>
+        </div>
       </div>
     </div>
   </section>
-    </section>
 
-    <section id="passions" class="passions">
-      <h2>Additional Passions</h2>
-      <div class="passions-container">
+  <!-- About Section -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>I'm a dedicated developer focused on crafting clean, user-friendly digital experiences. My approach combines technical expertise with an eye for design to create solutions that are both functional and visually appealing.</p>
+        <p>I enjoy working across the full stack, from implementing responsive front-end interfaces with HTML, CSS, and JavaScript to building robust back-end systems with PHP and other server-side technologies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Passions Section -->
+  <section class="section passions" id="passions">
+    <div class="container">
+      <h2 class="section-title">My Passions</h2>
+      <div class="passions-grid">
         <div class="passion-card">
-          <h3>Front-End Developer</h3>
-          <p>Focus: Website Interfaces</p>
+          <div class="passion-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Front-End Development</h3>
+          <p>Creating responsive, accessible, and performant websites with modern JavaScript frameworks.</p>
         </div>
         <div class="passion-card">
-          <h3>Back-End Developer</h3>
-          <p>Focus: Server-Side Logic</p>
+          <div class="passion-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>Back-End Development</h3>
+          <p>Building secure, scalable server-side applications and APIs with robust architecture.</p>
         </div>
         <div class="passion-card">
-          <h3>UI/UX Designer</h3>
-          <p>Focus: Design + Prototyping</p>
+          <div class="passion-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>Designing intuitive user interfaces with a focus on usability and aesthetic appeal.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="skills" class="skills">
-      <h2>Skills I Have Learned</h2>
+  <!-- Skills Section -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <h2 class="section-title">My Skills</h2>
       <div class="skills-container">
-        <div class="skills-category">
+        <div class="skill-category">
           <h3>Languages</h3>
-          <div class="skill">
-            <img src="./asset/PHP.png" alt="PHP">
-            <div class="skill-name">PHP</div>
-          </div>
-          <div class="skill">
-            <img src="./asset/JavaScript.png" alt="JavaScript">
-            <div class="skill-name">JavaScript</div>
-          </div>
-          <div class="skill">
-            <img src="./asset/Vue.png" alt="Vue.js">
-            <div class="skill-name">Vue.js</div>
-          </div>
-          <div class="skill">
-            <img src="./asset/React.png" alt="React.js">
-            <div class="skill-name">React.js</div>
-          </div>
-          <div class="skill">
-            <img src="./asset/Java.png" alt="Vue.js">
-            <div class="skill-name">Java</div>
-          </div>
-          <div class="skill">
-            <img src="./asset/Python.png" alt="React.js">
-            <div class="skill-name">Python</div>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <img src="./asset/PHP.png" alt="PHP" class="skill-icon">
+              <div class="skill-name">PHP</div>
+            </div>
+            <div class="skill-item">
+              <img src="./asset/JavaScript.png" alt="JavaScript" class="skill-icon">
+              <div class="skill-name">JavaScript</div>
+            </div>
+            <div class="skill-item">
+              <img src="./asset/Java.png" alt="Java" class="skill-icon">
+              <div class="skill-name">Java</div>
+            </div>
+            <div class="skill-item">
+              <img src="./asset/Python.png" alt="Python" class="skill-icon">
+              <div class="skill-name">Python</div>
+            </div>
           </div>
         </div>
-    
-        <div class="skills-category">
+        
+        <div class="skill-category">
+          <h3>Frameworks & Libraries</h3>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <img src="./asset/Vue.png" alt="Vue.js" class="skill-icon">
+              <div class="skill-name">Vue.js</div>
+            </div>
+            <div class="skill-item">
+              <img src="./asset/React.png" alt="React.js" class="skill-icon">
+              <div class="skill-name">React.js</div>
+            </div>
+            <div class="skill-item">
+              <img src="./asset/laravel.png" alt="Laravel" class="skill-icon">
+              <div class="skill-name">Laravel</div>
+            </div>
+            <div class="skill-item">
+              <img src="./asset/Express.png" alt="Express.js" class="skill-icon">
+              <div class="skill-name">Express.js</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-category">
           <h3>Tools</h3>
-          <div class="skill">
-            <img src="./asset/VS Code.png" alt="Tools">
-            <div class="skill-name">VS Code</div>
-          </div>
-          <div class="skill">
-            <img src="./asset/xampp.png" alt="Tools">
-            <div class="skill-name">Xammp</div>
-          </div>
-          <div class="skill">
-            <img src="./asset/Figma.jpg" alt="Tools">
-            <div class="skill-name">Figma</div>
-          </div>
-          <div class="skill">
-            <img src="./asset/Canva.png" alt="Tools">
-            <div class="skill-name">Canva</div>
-          </div>
-          <div class="skill">
-            <img src="./asset/draw.io.png" alt="Tools">
-            <div class="skill-name">Draw.io</div>
-          </div>
-          <div class="skill">
-            <img src="./asset/StarUML.png" alt="Tools">
-            <div class="skill-name">Star UML</div>
-          </div>
-        </div>
-    
-        <div class="skills-category">
-          <h3>Libraries</h3>
-          <div class="skill">
-            <img src="./asset/Express.png" alt="Node.js">
-            <div class="skill-name">Node.js</div>
-          </div>
-          <div class="skill">
-            <img src="./asset/laravel.png" alt="Laravel">
-            <div class="skill-name">Laravel</div>
-          </div>
-          <div class="skill">
-            <img src="./asset/mysql.png" alt="MySQL">
-            <div class="skill-name">MySQL</div>
+          <div class="skills-grid">
+            <div class="skill-item">
+              <img src="./asset/VS Code.png" alt="VS Code" class="skill-icon">
+              <div class="skill-name">VS Code</div>
+            </div>
+            <div class="skill-item">
+              <img src="./asset/Figma.jpg" alt="Figma" class="skill-icon">
+              <div class="skill-name">Figma</div>
+            </div>
+            <div class="skill-item">
+              <img src="./asset/mysql.png" alt="MySQL" class="skill-icon">
+              <div class="skill-name">MySQL</div>
+            </div>
+            <div class="skill-item">
+              <img src="./asset/xampp.png" alt="XAMPP" class="skill-icon">
+              <div class="skill-name">XAMPP</div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-    
+    </div>
+  </section>
 
-    <section id="portfolio" class="portfolio">
-      <h2>My Experience</h2>
-      <div class="portfolio-container">
+  <!-- Portfolio Section -->
+  <section class="section portfolio" id="portfolio">
+    <div class="container">
+      <h2 class="section-title">My Work</h2>
+      <div class="portfolio-grid">
         <div class="portfolio-item">
-          <img src="./asset/Hotel.png" alt="Project 1">
-          <h3>Hotel Booking System</h3>
-          <p>A hotel booking system designed for admin and front desk staff, enabling real-time room availability management, secure payments, and an intuitive interface.</p>
+          <img src="./asset/Hotel.png" alt="Hotel Booking System" class="portfolio-img">
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">Hotel Booking System</h3>
+            <p>A comprehensive system for managing room bookings, availability, and payments with admin and user interfaces.</p>
+          </div>
         </div>
         <div class="portfolio-item">
-          <img src="./asset/ecommerce.png" alt="Project 2">
-          <h3>E-commerce Platform</h3>
-          <p>An online shopping website with a secure checkout system, inventory management, and user authentication for seamless transactions.</p>
+          <img src="./asset/ecommerce.png" alt="E-commerce Platform" class="portfolio-img">
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">E-commerce Platform</h3>
+            <p>Full-featured online store with product management, shopping cart, and secure checkout functionality.</p>
+          </div>
         </div>
         <div class="portfolio-item">
-          <img src="./asset/dashboard.png" alt="Project 3">
-          <h3>Admin Dashboard</h3>
-          <p>A comprehensive admin panel that helps manage website content, track analytics, and optimize performance with an intuitive UI.</p>
-        </div>
-        <div class="portfolio-item">
-          <img src="./asset/ecommerce.png" alt="Project 2">
-          <h3>E-commerce Platform</h3>
-          <p>An online shopping website with a secure checkout system, inventory management, and user authentication for seamless transactions.</p>
-        </div>
-        <div class="portfolio-item">
-          <img src="./asset/dashboard.png" alt="Project 3">
-          <h3>Admin Dashboard</h3>
-          <p>A comprehensive admin panel that helps manage website content, track analytics, and optimize performance with an intuitive UI.</p>
-        </div>
-        <div class="portfolio-item">
-          <img src="./asset/ecommerce.png" alt="Project 2">
-          <h3>E-commerce Platform</h3>
-          <p>An online shopping website with a secure checkout system, inventory management, and user authentication for seamless transactions.</p>
-        </div>
-        <div class="portfolio-item">
-          <img src="./asset/dashboard.png" alt="Project 3">
-          <h3>Admin Dashboard</h3>
-          <p>A comprehensive admin panel that helps manage website content, track analytics, and optimize performance with an intuitive UI.</p>
+          <img src="./asset/dashboard.png" alt="Admin Dashboard" class="portfolio-img">
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">Admin Dashboard</h3>
+            <p>Analytics and management dashboard with data visualization tools and content management capabilities.</p>
+          </div>
         </div>
       </div>
-    </section>
-    <section id="contact" class="contact">
-      <h2>Contact Me</h2>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
       <div class="contact-links">
-        <a href="https://github.com/Unsengly">GitHub</a>
-        <a href="">Instagram</a>
-        <a href="unsengly.e20201382@gmail.com">Email</a>
-        <a href="tel:092474158">Tel</a>
+        <a href="https://github.com/Unsengly" class="contact-link">
+          <i class="fab fa-github contact-icon"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="#" class="contact-link">
+          <i class="fab fa-instagram contact-icon"></i>
+          <span>Instagram</span>
+        </a>
+        <a href="mailto:unsengly.e20201382@gmail.com" class="contact-link">
+          <i class="fas fa-envelope contact-icon"></i>
+          <span>Email</span>
+        </a>
+        <a href="tel:092474158" class="contact-link">
+          <i class="fas fa-phone contact-icon"></i>
+          <span>Call Me</span>
+        </a>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
+  <!-- Footer -->
   <footer class="footer">
-    <p>Design by Un Sengly</p>
+    <div class="container">
+      <p>&copy; 2023 Un Sengly. All rights reserved.</p>
+    </div>
   </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
