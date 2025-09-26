@@ -393,37 +393,111 @@
     }
 
     /* Contact Section */
-    .contact-links {
+    .contact {
+      background: var(--card-bg);
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .contact-info {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 1.5rem;
     }
 
-    .contact-link {
+    .contact-item {
       display: flex;
       align-items: center;
-      padding: 1rem 1.8rem;
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-
-    .contact-link:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      background: var(--primary);
-      color: white;
-    }
-
-    .contact-link:hover span {
-      color: white;
+      gap: 1rem;
     }
 
     .contact-icon {
-      margin-right: 0.8rem;
-      font-size: 1.3rem;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .contact-details h3 {
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-details p {
+      margin-bottom: 0;
+      opacity: 0.8;
+    }
+
+    .cv-section {
+      background: var(--section-alt);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .cv-section h3 {
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .cv-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cv-upload-form {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group input[type="file"] {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+    }
+
+    .upload-status {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      border-radius: var(--border-radius);
+      display: none;
+    }
+
+    .upload-status.success {
+      background: #d4edda;
+      color: #155724;
+      display: block;
+    }
+
+    .upload-status.error {
+      background: #f8d7da;
+      color: #721c24;
+      display: block;
     }
 
     /* Footer */
@@ -575,6 +649,11 @@
         width: 250px;
         height: 250px;
       }
+      
+      .cv-actions {
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     @media (max-width: 768px) {
@@ -620,11 +699,10 @@
         grid-template-columns: 1fr;
       }
 
-      .contact-links {
-        flex-direction: column;
-        align-items: center;
+      .contact-content {
+        grid-template-columns: 1fr;
       }
-      
+
       .skill-category {
         padding: 2rem;
       }
@@ -703,13 +781,16 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-image">
-          <img src="assets/images/sengly.jpg" alt="Un Sengly">
+          <img src="assets/images/unsengly.jpg" alt="Un Sengly">
         </div>
         <div class="hero-text">
           <h1 class="hero-title">Hi, I'm <span class="highlight">Un Sengly</span></h1>
           <p class="hero-subtitle">Full Stack Developer passionate about building modern web applications.</p>
           <p>I design and develop end-to-end digital solutions. Turning ideas into functional and user-friendly software Bridging front-end design with back-end logic Developer with a focus on clean code and great user experience.</p>
-          <a href="#contact" class="btn">Get in Touch</a>
+          <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+            <a href="#contact" class="btn">Get in Touch</a>
+            <a href="assets/images/UN_SENGLY_CV_RESUME.pdf" class="btn btn-outline" download>Download CV</a>
+          </div>
         </div>
       </div>
     </div>
@@ -864,23 +945,80 @@
   <section class="section contact" id="contact">
     <div class="container">
       <h2 class="section-title">Get In Touch</h2>
-      <div class="contact-links">
-        <a href="https://github.com/Unsengly" class="contact-link">
-          <i class="fab fa-github contact-icon"></i>
-          <span>GitHub</span>
-        </a>
-        <a href="#" class="contact-link">
-          <i class="fab fa-instagram contact-icon"></i>
-          <span>Instagram</span>
-        </a>
-        <a href="mailto:unsengly.e20201382@gmail.com" class="contact-link">
-          <i class="fas fa-envelope contact-icon"></i>
-          <span>Email</span>
-        </a>
-        <a href="tel:0975531650/092474158" class="contact-link">
-          <i class="fas fa-phone contact-icon"></i>
-          <span>Call Me</span>
-        </a>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Location</h3>
+              <p>Phnom Penh, Cambodia</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <p>unsengly1601@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Phone</h3>
+              <p>0975531650 / 092474158</p>
+            </div>
+          </div>
+          <div class="contact-links">
+            <a href="https://github.com/Unsengly" class="contact-link">
+              <i class="fab fa-github contact-icon"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="#" class="contact-link">
+              <i class="fab fa-instagram contact-icon"></i>
+              <span>Instagram</span>
+            </a>
+            <a href="mailto:unsengly1601@gmail.com" class="contact-link">
+              <i class="fas fa-envelope contact-icon"></i>
+              <span>Email</span>
+            </a>
+            <a href="tel:0975531650/092474158" class="contact-link">
+              <i class="fas fa-phone contact-icon"></i>
+              <span>Call Me</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="cv-section">
+          <h3>My Curriculum Vitae</h3>
+          <div class="cv-actions">
+            <a href="assets/images/UN_SENGLY_CV_RESUME.pdf" class="btn" download>
+              <i class="fas fa-download"></i> Download CV
+            </a>
+            <a href="assets/images/UN_SENGLY_CV_RESUME.pdf" class="btn btn-outline" target="_blank">
+              <i class="fas fa-eye"></i> View CV
+            </a>
+          </div>
+          
+          <div class="cv-upload-form">
+            <h4>Upload Your CV for Review</h4>
+            <form id="cvUploadForm">
+              <div class="form-group">
+                <label for="cvFile">Select PDF file (max 5MB):</label>
+                <input type="file" id="cvFile" name="cvFile" accept=".pdf" required>
+              </div>
+              <button type="submit" class="btn">
+                <i class="fas fa-upload"></i> Upload CV
+              </button>
+            </form>
+            <div id="uploadStatus" class="upload-status"></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -927,7 +1065,6 @@
           <div class="tech-tag">MySQL</div>
           <div class="tech-tag">JavaScript</div>
           <div class="tech-tag">Tailwind CSS</div>
-          <!-- <div class="tech-tag">Stripe API</div> -->
         </div>
         <div class="modal-links">
           <a href="#" class="btn">View Live Project</a>
@@ -969,8 +1106,6 @@
           <div class="tech-tag">Node.js</div>
           <div class="tech-tag">Express.js</div>
           <div class="tech-tag">MongoDB</div>
-          <!-- <div class="tech-tag">Redux</div> -->
-          <!-- <div class="tech-tag">PayPal API</div> -->
         </div>
         <div class="modal-links">
           <a href="#" class="btn">View Live Project</a>
@@ -1082,6 +1217,54 @@
         });
       }
     });
+
+    // CV Upload Functionality
+    const cvUploadForm = document.getElementById('cvUploadForm');
+    const uploadStatus = document.getElementById('uploadStatus');
+
+    cvUploadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const fileInput = document.getElementById('cvFile');
+      const file = fileInput.files[0];
+      
+      if (!file) {
+        showUploadStatus('Please select a file to upload.', 'error');
+        return;
+      }
+      
+      // Check file type
+      if (file.type !== 'application/pdf') {
+        showUploadStatus('Please upload a PDF file only.', 'error');
+        return;
+      }
+      
+      // Check file size (5MB limit)
+      if (file.size > 5 * 1024 * 1024) {
+        showUploadStatus('File size must be less than 5MB.', 'error');
+        return;
+      }
+      
+      // Simulate upload process (in a real application, you would send to a server)
+      showUploadStatus('Uploading your CV...', '');
+      
+      setTimeout(() => {
+        // Simulate successful upload
+        showUploadStatus('CV uploaded successfully! Thank you for sharing.', 'success');
+        cvUploadForm.reset();
+      }, 2000);
+    });
+
+    function showUploadStatus(message, type) {
+      uploadStatus.textContent = message;
+      uploadStatus.className = 'upload-status';
+      
+      if (type === 'success') {
+        uploadStatus.classList.add('success');
+      } else if (type === 'error') {
+        uploadStatus.classList.add('error');
+      }
+    }
   </script>
 </body>
 </html>
