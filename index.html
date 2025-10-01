@@ -38,6 +38,7 @@
       color: var(--dark);
       background-color: var(--light);
       font-weight: 400;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, h4 {
@@ -92,7 +93,9 @@
     }
 
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       padding: 0.9rem 2rem;
       background: var(--secondary);
       color: white;
@@ -128,11 +131,10 @@
       left: 0;
       width: 100%;
       padding: 1.2rem 0;
-      background: rgba(235, 244, 246, 0.95);
+      background: rgba(255, 255, 255, 0.95);
       box-shadow: 0 2px 10px rgba(7, 25, 82, 0.05);
       z-index: 1000;
       backdrop-filter: blur(10px);
-      background-color: lavenderblush;
     }
 
     .header .container {
@@ -403,40 +405,6 @@
       gap: 3rem;
     }
 
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .contact-icon {
-      width: 50px;
-      height: 50px;
-      background: var(--primary-light);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      color: var(--primary);
-    }
-
-    .contact-details h3 {
-      margin-bottom: 0.3rem;
-      font-size: 1.1rem;
-    }
-
-    .contact-details p {
-      margin-bottom: 0;
-      opacity: 0.8;
-    }
-
     .cv-section {
       background: var(--section-alt);
       padding: 2rem;
@@ -457,59 +425,133 @@
       flex-wrap: wrap;
     }
 
-    .cv-upload-form {
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(0,0,0,0.1);
-    }
-
-    .form-group {
-      margin-bottom: 1rem;
-      text-align: left;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-
-    .form-group input[type="file"] {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid #ddd;
-      border-radius: var(--border-radius);
-    }
-
-    .upload-status {
-      margin-top: 1rem;
-      padding: 0.8rem;
-      border-radius: var(--border-radius);
-      display: none;
-    }
-
-    .upload-status.success {
-      background: #d4edda;
-      color: #155724;
-      display: block;
-    }
-
-    .upload-status.error {
-      background: #f8d7da;
-      color: #721c24;
-      display: block;
-    }
-
-    /* Footer */
+    /* Updated Footer Styles */
     .footer {
-      background: var(--primary);
-      color: black;
-      text-align: center;
-      padding: 3rem 0;
+      background: var(--dark);
+      color: white;
+      padding: 3rem 0 1.5rem;
     }
 
-    .footer p {
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 3rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-main {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .footer-brand .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-tagline {
+      opacity: 0.8;
+      max-width: 300px;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .contact-item i {
+      width: 20px;
+      color: var(--primary-light);
+    }
+
+    .contact-item a {
+      color: rgba(255, 255, 255, 0.9);
+      transition: var(--transition);
+    }
+
+    .contact-item a:hover {
+      color: var(--primary-light);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .link-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .link-group h4 {
+      color: white;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .link-group a {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
       color: rgba(255, 255, 255, 0.8);
+      transition: var(--transition);
+    }
+
+    .link-group a:hover {
+      color: var(--primary-light);
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
     }
 
     /* Modal Styles */
@@ -719,6 +761,20 @@
       .modal-links {
         flex-direction: column;
       }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .footer-links {
+        gap: 2rem;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
     }
 
     @media (max-width: 480px) {
@@ -781,7 +837,7 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-image">
-          <img src="assets/images/unsengly.jpg" alt="Un Sengly">
+          <img src="assets/images/senglyun.JPG" alt="Un Sengly">
         </div>
         <div class="hero-text">
           <h1 class="hero-title">Hi, I'm <span class="highlight">Un Sengly</span></h1>
@@ -916,19 +972,19 @@
     <div class="container">
       <h2 class="section-title">My Experiences</h2>
       <div class="portfolio-grid">
-        <div class="portfolio-item" data-project="dashboard">
+        <div class="portfolio-item" data-project="hotel">
           <img src="assets/images/Dashboard.png" alt="Admin Dashboard" class="portfolio-img">
           <div class="portfolio-content">
-            <h3 class="portfolio-title">Admin Dashboard</h3>
+            <h3 class="portfolio-title">Hotel Management System</h3>
             <p>Hotel Web application which use by admins and staffs to controll the hotel operations</p>
           </div>
         </div>
 
-        <div class="portfolio-item" data-project="hotel">
+        <div class="portfolio-item" data-project="note">
           <img src="assets/images/noteapp.jpg" alt="Note Application" class="portfolio-img">
           <div class="portfolio-content">
             <h3 class="portfolio-title">Note Web Application</h3>
-            <p></p>
+            <p>A simple and responsive notes app built with Vue 3 and ASP.NET Core Web API</p>
           </div>
         </div>
 
@@ -939,16 +995,6 @@
             <p>Full-featured online store with product management, shopping cart, and secure checkout functionality.</p>
           </div>
         </div>
-
-        <!-- <div class="portfolio-item" data-project="dashboard">
-          <img src="assets/images/Dashboard.png" alt="Admin Dashboard" class="portfolio-img">
-          <div class="portfolio-content">
-            <h3 class="portfolio-title">Admin Dashboard</h3>
-            <p>Hotel Web application which use by admins and staffs to controll the hotel operations</p>
-          </div>
-        </div> -->
-
-          
       </div>
     </div>
   </section>
@@ -957,93 +1003,80 @@
   <section class="section contact" id="contact">
     <div class="container">
       <h2 class="section-title">Get In Touch</h2>
-      <div class="contact-content">
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Location</h3>
-              <p>Phnom Penh, Cambodia</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Email</h3>
-              <p>unsengly1601@gmail.com</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-phone"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Phone</h3>
-              <p>0975531650 / 092474158</p>
-            </div>
-          </div>
-          <div class="contact-links">
-            <a href="https://github.com/Unsengly" class="contact-link">
-              <i class="fab fa-github contact-icon"></i>
-              <span>GitHub Engineer Degree</span>
-            </a>
-
-             <a href="https://github.com/SenglyUn" class="contact-link">
-              <i class="fab fa-github contact-icon"></i>
-              <span>GitHub Project Experiences</span>
-            </a>
-            <!-- <a href="#" class="contact-link">
-              <i class="fab fa-instagram contact-icon"></i>
-              <span>Instagram</span>
-            </a> -->
-            <a href="mailto:unsengly1601@gmail.com" class="contact-link">
-              <i class="fas fa-envelope contact-icon"></i>
-              <span>Email</span>
-            </a>
-            <a href="tel:0975531650/092474158" class="contact-link">
-              <i class="fas fa-phone contact-icon"></i>
-              <span>Call Me</span>
-            </a>
-          </div>
-        </div>
-        
-        <div class="cv-section">
-          <h3>My Curriculum Vitae</h3>
-          <div class="cv-actions">
-            <a href="assets/images/UN_SENGLY_CV_RESUME.pdf" class="btn" download>
-              <i class="fas fa-download"></i> Download CV
-            </a>
-            <a href="assets/images/UN_SENGLY_CV_RESUME.pdf" class="btn btn-outline" target="_blank">
-              <i class="fas fa-eye"></i> View CV
-            </a>
-          </div>
-          
-          <div class="cv-upload-form">
-            <h4>Upload Your CV for Review</h4>
-            <form id="cvUploadForm">
-              <div class="form-group">
-                <label for="cvFile">Select PDF file (max 5MB):</label>
-                <input type="file" id="cvFile" name="cvFile" accept=".pdf" required>
-              </div>
-              <button type="submit" class="btn">
-                <i class="fas fa-upload"></i> Upload CV
-              </button>
-            </form>
-            <div id="uploadStatus" class="upload-status"></div>
-          </div>
+      <div class="cv-section">
+        <h3>My Curriculum Vitae</h3>
+        <div class="cv-actions">
+          <a href="assets/images/UN_SENGLY_CV_RESUME.pdf" class="btn" download>
+            <i class="fas fa-download"></i> Download CV
+          </a>
+          <a href="assets/images/UN_SENGLY_CV_RESUME.pdf" class="btn btn-outline" target="_blank">
+            <i class="fas fa-eye"></i> View CV
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Updated Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Un Sengly. All rights reserved.</p>
+      <div class="footer-content">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <div class="logo">Un Sengly</div>
+            <p class="footer-tagline">Full Stack Developer passionate about building modern web applications.</p>
+          </div>
+          
+          <div class="footer-contact">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:unsengly1601@gmail.com">unsengly1601@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <a href="tel:0975531650">097 553 1650</a>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Phnom Penh, Cambodia</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <div class="link-group">
+            <h4>GitHub Profiles</h4>
+            <a href="https://github.com/Unsengly" target="_blank">
+              <i class="fab fa-github"></i>
+              <span>GitHub Engineer Degree</span>
+            </a>
+            <a href="https://github.com/SenglyUn" target="_blank">
+              <i class="fab fa-github"></i>
+              <span>GitHub Project Experiences</span>
+            </a>
+          </div>
+          
+          <div class="link-group">
+            <h4>Quick Links</h4>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Experiences</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Un Sengly. All rights reserved.</p>
+        <div class="social-links">
+          <a href="https://github.com/Unsengly" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:unsengly1601@gmail.com" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -1054,11 +1087,55 @@
         <i class="fas fa-times"></i>
       </div>
       <div class="modal-header">
+        <h2 class="modal-title">Hotel Management System</h2>
+        <p class="modal-subtitle">Full-stack web application for hotel operations</p>
+      </div>
+      <div class="modal-content">
+        <img src="assets/images/Dashboard.png" alt="Hotel Management System" class="modal-image">
+        <div class="modal-details">
+          <h4>Project Overview</h4>
+          <p>A comprehensive hotel management system designed to streamline operations for both staff and guests. The system includes room booking, availability management, payment processing, and administrative functions.</p>
+        </div>
+        <div class="modal-details">
+          <h4>Key Features</h4>
+          <ul>
+            <li>User registration and authentication system</li>
+            <li>Room availability checking and booking</li>
+            <li>Payment integration with multiple options</li>
+            <li>Admin dashboard for managing rooms, bookings, and users and task managemet in hotel operations</li>
+            <li>Email notifications for booking confirmations</li>
+            <li>Review and rating system for guests</li>
+          </ul>
+        </div>
+        <div class="modal-tech">
+          <h4>Technologies Used</h4>
+          <div class="tech-tag">React.js</div>
+          <div class="tech-tag">Node.js</div>
+          <div class="tech-tag">Express.js</div>
+          <div class="tech-tag">MySQL</div>
+          <div class="tech-tag">JavaScript</div>
+          <div class="tech-tag">Tailwind CSS</div>
+        </div>
+        <div class="modal-links">
+          <a href="assets/images/hotel.pdf" class="btn" target="_blank">View Project PDF</a>
+          <a href="https://github.com/SenglyUn/Hotel-Management-System-Backend/tree/hotel_backend" class="btn btn-outline">GitHub Repository Backend</a>
+          <a href="https://github.com/SenglyUn/Hotel-Management-System-Frontend/tree/hotel_web_ui" class="btn btn-outline">GitHub Repository Frontend</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="note-modal">
+    <div class="modal">
+      <div class="modal-close">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="modal-header">
         <h2 class="modal-title">Note Application System</h2>
         <p class="modal-subtitle">Full-stack web application for Note</p>
       </div>
       <div class="modal-content">
-        <img src="assets/images/noteapp.jpg" alt="Hotel Management System" class="modal-image">
+        <img src="assets/images/noteapp.jpg" alt="Note Application System" class="modal-image">
         <div class="modal-details">
           <h4>Project Overview</h4>
           <p>A simple and responsive notes app built with Vue 3, TypeScript, and Tailwind CSS on the front-end, and ASP.NET Core Web API with SQL Server on the back-end. Users can create, read, update, and delete personal notes with real-time search and filtering. The app tracks note creation and update timestamps and ensures data privacy by allowing users to manage only their own notes. API calls are handled with Axios, and the backend uses Dapper ORM for efficient database operations.</p>
@@ -1080,10 +1157,9 @@
           <div class="tech-tag">Vue 3</div>
           <div class="tech-tag">TypeScript</div>
           <div class="tech-tag">Tailwind CSS</div>
-        
         </div>
         <div class="modal-links">
-          <a href="#" class="btn">View Live Project</a>
+          <a href="assets/projects/note-application.pdf" class="btn" target="_blank">View Project PDF</a>
           <a href="https://github.com/SenglyUn/Note-Application/tree/Backend" class="btn btn-outline">GitHub Repository Backend</a>
           <a href="https://github.com/SenglyUn/Note-Application/tree/Frontend" class="btn btn-outline">GitHub Repository Frontend</a>
         </div>
@@ -1124,53 +1200,8 @@
           <div class="tech-tag">Tailwind CSS</div>
         </div>
         <div class="modal-links">
-          <a href="#" class="btn">View Live Project</a>
+          <a href="assets/images/Ecommerce_web.pdf" class="btn" target="_blank">View Project PDF</a>
           <a href="https://github.com/SenglyUn/Ecommerce-Frontend/tree/frontend" class="btn btn-outline">GitHub Repository</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="dashboard-modal">
-    <div class="modal">
-      <div class="modal-close">
-        <i class="fas fa-times"></i>
-      </div>
-      <div class="modal-header">
-        <h2 class="modal-title">Hotel Management System</h2>
-        <!-- <p class="modal-subtitle">Analytics and management interface</p> -->
-      </div>
-      <div class="modal-content">
-        <img src="assets/images/Dashboard.png" alt="Admin Dashboard" class="modal-image">
-        <div class="modal-details">
-           <h4>Project Overview</h4>
-          <p>A comprehensive hotel management system designed to streamline operations for both staff and guests. The system includes room booking, availability management, payment processing, and administrative functions.</p>
-        </div>
-        <div class="modal-details">
-          <h4>Key Features</h4>
-          <ul>
-            <li>User registration and authentication system</li>
-            <li>Room availability checking and booking</li>
-            <li>Payment integration with multiple options</li>
-            <li>Admin dashboard for managing rooms, bookings, and users and task managemet in hotel operations</li>
-            <li>Email notifications for booking confirmations</li>
-            <li>Review and rating system for guests</li>
-          </ul>
-        </div>
-
-        <div class="modal-tech">
-          <h4>Technologies Used</h4>
-          <div class="tech-tag">React.js</div>
-          <div class="tech-tag">Node.js</div>
-          <div class="tech-tag">Express.js</div>
-          <div class="tech-tag">MySQL</div>
-          <div class="tech-tag">JavaScript</div>
-          <div class="tech-tag">Tailwind CSS</div>
-        </div>
-        <div class="modal-links">
-          <a href="#" class="btn">View Live Project</a>
-          <a href="https://github.com/SenglyUn/Hotel-Management-System-Backend/tree/hotel_backend" class="btn btn-outline">GitHub Repository Backend</a>
-          <a href="https://github.com/SenglyUn/Hotel-Management-System-Frontend/tree/hotel_web_ui" class="btn btn-outline">GitHub Repository Frontend</a>
         </div>
       </div>
     </div>
@@ -1235,54 +1266,6 @@
         });
       }
     });
-
-    // CV Upload Functionality
-    const cvUploadForm = document.getElementById('cvUploadForm');
-    const uploadStatus = document.getElementById('uploadStatus');
-
-    cvUploadForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const fileInput = document.getElementById('cvFile');
-      const file = fileInput.files[0];
-      
-      if (!file) {
-        showUploadStatus('Please select a file to upload.', 'error');
-        return;
-      }
-      
-      // Check file type
-      if (file.type !== 'application/pdf') {
-        showUploadStatus('Please upload a PDF file only.', 'error');
-        return;
-      }
-      
-      // Check file size (5MB limit)
-      if (file.size > 5 * 1024 * 1024) {
-        showUploadStatus('File size must be less than 5MB.', 'error');
-        return;
-      }
-      
-      // Simulate upload process (in a real application, you would send to a server)
-      showUploadStatus('Uploading your CV...', '');
-      
-      setTimeout(() => {
-        // Simulate successful upload
-        showUploadStatus('CV uploaded successfully! Thank you for sharing.', 'success');
-        cvUploadForm.reset();
-      }, 2000);
-    });
-
-    function showUploadStatus(message, type) {
-      uploadStatus.textContent = message;
-      uploadStatus.className = 'upload-status';
-      
-      if (type === 'success') {
-        uploadStatus.classList.add('success');
-      } else if (type === 'error') {
-        uploadStatus.classList.add('error');
-      }
-    }
   </script>
 </body>
 </html>
